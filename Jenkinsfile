@@ -21,11 +21,6 @@ pipeline {
       steps {
         sh 'mvn test'
       }
-      post {
-      	always {
-	   'target/hello-world.war'
-        }
-      }
     }
     stage('Deploy') {
       steps {
