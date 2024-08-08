@@ -24,7 +24,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        deploy adapters: [tomcat9(credentialsId: 'admin', url: 'http://192.168.56.102:8080/' )], contextPath: Jenkinsfile, war: 'path/to/war'
+        deploy adapters: [tomcat9(credentialsId: 'admin', url: 'http://192.168.56.102:8080/' )], contextPath: null, war: 'path/to/war'
       }
     }
   }
