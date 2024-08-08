@@ -24,6 +24,8 @@ pipeline {
       post {
       	always {
 	   'target/hello-world.war'
+        }
+      }
     }
     stage('Deploy') {
       steps {
