@@ -24,7 +24,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        deploy adapters: [tomcat9(credentialsId: 'tomcat-manager', url: 'http://192.168.56.102:8080/' )], contextPath: null, war: '/var/lib/jenkins/workspace/maven_pipeline_tomcat/target/hello-world.war '
+        deploy adapters: [tomcat9(credentialsId: 'tomcat-manager', url: 'http://192.168.56.102:8080/' )], contextPath: null, war: 'target/hello-world.war'
       }
     }
   }
