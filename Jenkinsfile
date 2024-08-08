@@ -4,6 +4,7 @@ pipeline {
   triggers {
     pollSCM('* * * * *')
   }
+
   stages {
     stage('Checkout') {
       steps {
@@ -20,10 +21,13 @@ pipeline {
       steps {
         sh 'mvn test'
       }
+      post {
+      	always {
+	   'target/hello-world.war'
     }
     stage('Deploy') {
       steps {
-        deploy adapters: [tomcat9(credentialsId: 'admin', url: 'http://192.168.56.102:8080/' )], contextPath: null, war: 'path/to/war'
+        deploy adapters: [tomcat9(credentialsId: 'admin', url: 'http://192.168.56.102:8080/' )], contextPath: null, war: 'target/hello-world.war'
       }
     }
   }
