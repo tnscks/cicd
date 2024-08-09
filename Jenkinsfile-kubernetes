@@ -30,7 +30,7 @@ spec:
   volumes:
   - name: registry-credentials
     secret:
-      secretName: regcred
+      secretName: docker-hub-credential
       items:
       - key: .dockerconfigjson
         path: config.json
