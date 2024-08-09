@@ -71,7 +71,7 @@ spec:
         githubUser = 'tnscks' 
         githubEmail = 'gkrbs0603@gmail.com' 
         githubId = 'tnscks' 
-        githubRepo = 'cdargo' 
+        githubRepo = 'cicd' 
         githubURL = "https://github.com/${githubId}/${githubRepo}.git"
         dockerhubId = 'tnscks' 
         dockerhubRepo = 'cicd' 
