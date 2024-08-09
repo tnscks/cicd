@@ -41,7 +41,7 @@ spec:
     stage('Checkout') {
       steps {
         container('maven') {
-          git branch: 'main', url: 'https://github.com/tnscks/cdargo.git'
+          git branch: 'main', url: 'https://github.com/tnscks/cicd.git'
         }
       }
     }
@@ -71,10 +71,10 @@ spec:
         githubUser = 'tnscks' 
         githubEmail = 'gkrbs0603@gmail.com' 
         githubId = 'tnscks' 
-        githubRepo = 'cicd' 
+        githubRepo = 'cdargo' 
         githubURL = "https://github.com/${githubId}/${githubRepo}.git"
         dockerhubId = 'tnscks' 
-        dockerhubRepo = 'cicd' 
+        dockerhubRepo = 'cdargo' 
       }
       steps {
         container('git') {
@@ -82,7 +82,7 @@ spec:
           sh "git config --global --add safe.directory ${workspace}"
           sh "git config --global user.name ${githubUser}"
           sh "git config --global user.email ${githubEmail}"
-          sh 'sed -i "s/image:.*/image:${dockerhubId}\\/${dockerhubRepo}:${BUILD_NUMBER}/g" deployment.yaml'
+          sh 'sed -i "s/image:.*/image: ${dockerhubId}\\/${dockerhubRepo}:${BUILD_NUMBER}/g" deployment.yaml'
           sh 'git add deployment.yaml'
           sh 'git commit -m "Jenkins Build Number - ${BUILD_NUMBER}"'
           withCredentials([gitUsernamePassword(credentialsId: 'githubcredential', gitToolName: 'Default')]) {
