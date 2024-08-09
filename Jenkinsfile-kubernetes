@@ -74,7 +74,7 @@ spec:
         githubRepo = 'cdargo' 
         githubURL = "https://github.com/${githubId}/${githubRepo}.git"
         dockerhubId = 'tnscks' 
-        dockerhubRepo = 'cdargo' 
+        dockerhubRepo = 'cicd' 
       }
       steps {
         container('git') {
