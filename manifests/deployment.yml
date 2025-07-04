@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: tnsckscicd 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tnsckscicd
+  template:
+    metadata:
+      labels:
+        app: tnsckscicd 
+    spec:
+      containers:
+        - name: tnsckscicd 
+          image: kscacr.azurecr.io/tnsckscicd
+          ports:
+          - containerPort: 80
